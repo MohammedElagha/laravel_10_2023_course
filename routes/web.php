@@ -22,3 +22,11 @@ Route::get('settings/profile', function () {
     $pageName = "profile";
     return "this is settings - $pageName page";
 });
+
+Route::get('users/all', function () {
+    return view('users');
+});
+
+Route::get('products', function () {
+    return view('products.all');
+});
