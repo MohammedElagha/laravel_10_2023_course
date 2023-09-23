@@ -30,3 +30,17 @@ Route::get('users/all', function () {
 Route::get('products', function () {
     return view('products.all');
 });
+
+Route::get('students/details', function() {
+    $name = "Ahmed";
+    $id = "120145454";
+    $address = "Gaza";
+    $gpa = 87.14;
+
+    return view('students.getOne')
+        ->with('user_name', "Ali")
+        ->with('studentId', $id)
+        ->with('address', $address)
+        ->with('gpa', $gpa)
+        ->with('code', "<script>alert('hello');</script>");
+});
