@@ -37,10 +37,19 @@ Route::get('students/details', function() {
     $address = "Gaza";
     $gpa = 87.14;
 
+    $courses = ["Web 1", "Web 2", "Laravel"];
+
+    $person = ["name" => "Ahmed",
+                "address" => "Gaza",
+                "salary" => 70,
+                "courses" => $courses];
+
     return view('students.getOne')
+        ->with('person', $person)
+        ->with('courses', $courses)
         ->with('user_name', "Ali")
         ->with('studentId', $id)
         ->with('address', $address)
         ->with('gpa', $gpa)
-        ->with('code', "<script>alert('hello');</script>");
+        ->with('code', "<script></script>");
 });

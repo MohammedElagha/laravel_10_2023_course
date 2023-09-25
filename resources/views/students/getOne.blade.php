@@ -11,17 +11,6 @@
     <p>GPA is: {{ ($gpa+0.1) }}</p>
     <p>{!! $code !!}</p>
 
-    <?php
-    if($gpa >= 90) {
-        echo "<p>A</p>";
-    } elseif ($gpa >= 80 && $gpa < 90) {
-        echo "<p>B</p>";
-    } else if ($gpa >= 70 && $gpa < 80) {
-        echo "<p>C</p>";
-    } else {
-        echo "<p>D or F</p>";
-    }
-    ?>
 
     @if($gpa >= 90)
         <p>A</p>
@@ -32,6 +21,47 @@
     @else
         <p>F</p>
     @endif
+
+    @switch($address)
+        @case('Gaza')
+            <p>He's living in {{ $address }}</p>
+            <p>Gaza is the lang</p>
+            @break
+
+        @case('Rafah')
+            <p>He's living in South</p>
+            @break
+
+        @default
+            <p>He'is living in Palestine</p>
+    @endswitch
+
+
+    <ul>
+        @for($i = 0; $i <= count($courses)-1; $i++)
+            <li>{{ $courses[$i] }}</li>
+        @endfor
+    </ul>
+
+    <ul>
+        @foreach($courses as $index => $course)
+            @if ($courses[$index] == 'Laravel')
+                <li>Special Topics of Web (2)</li>
+            @else
+                <li>{{ $course }}</li>
+            @endif
+        @endforeach
+    </ul>
+
+    @foreach($person as $key => $value)
+        @if(is_array($value))
+            @foreach($value as $item)
+                {{ $item }}
+            @endforeach
+        @else
+            <p>the {{ $key }} is {{ $value }}</p>
+        @endif
+    @endforeach
 </div>
 
 </body>
