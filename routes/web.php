@@ -31,13 +31,19 @@ Route::get('products', function () {
     return view('products.all');
 });
 
+Route::get('std/profile', function () {
+    return view('students.info.profile', ['name' => 'Ahmed', 'gpa' => 88.4]);
+});
+
 Route::get('students/details', function() {
     $name = "Ahmed";
     $id = "120145454";
     $address = "Gaza";
     $gpa = 87.14;
 
-    $courses = ["Web 1", "Web 2", "Laravel"];
+//    $courses = ["Web 1", "Web 2", "Laravel"];
+    $courses = [];
+
 
     $person = ["name" => "Ahmed",
                 "address" => "Gaza",
@@ -53,3 +59,4 @@ Route::get('students/details', function() {
         ->with('gpa', $gpa)
         ->with('code', "<script></script>");
 });
+

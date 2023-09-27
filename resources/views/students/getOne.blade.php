@@ -1,8 +1,12 @@
 <html>
 
+@include('includes.head')
+
 <body>
 
-<h1>Student Profile</h1>
+<h1 @style(["color" => "red", "background-color" => "darkred"])>Student Profile</h1>
+
+@include('includes.time')
 
 <div>
     <p>Name is: {{ $user_name . $user_name }}</p>
@@ -24,16 +28,16 @@
 
     @switch($address)
         @case('Gaza')
-            <p>He's living in {{ $address }}</p>
-            <p>Gaza is the lang</p>
-            @break
+        <p>He's living in {{ $address }}</p>
+        <p>Gaza is the lang</p>
+        @break
 
         @case('Rafah')
-            <p>He's living in South</p>
-            @break
+        <p>He's living in South</p>
+        @break
 
         @default
-            <p>He'is living in Palestine</p>
+        <p>He'is living in Palestine</p>
     @endswitch
 
 
@@ -53,6 +57,25 @@
         @endforeach
     </ul>
 
+    <ul>
+        @forelse($courses as $course)
+            <li>{{ $course }}</li>
+        @empty
+            <li>There are no course yet..</li>
+        @endforelse
+    </ul>
+
+
+    @empty($name)
+        <p>The user has no name</p>
+    @endempty
+
+    @isset($name)
+
+    @endisset
+
+
+
     @foreach($person as $key => $value)
         @if(is_array($value))
             @foreach($value as $item)
@@ -65,4 +88,6 @@
 </div>
 
 </body>
+
+@include('includes.scripts', ['name' => 'Agha'])
 </html>
