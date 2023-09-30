@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\BookController;
 
 /*
 |--------------------------------------------------------------------------
@@ -60,3 +61,5 @@ Route::get('students/details', function() {
         ->with('code', "<script></script>");
 });
 
+
+Route::get('books/all', [BookController::class, 'index']);
