@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BookController;
+use App\Http\Controllers\Student\StudentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -63,3 +64,6 @@ Route::get('students/details', function() {
 
 
 Route::get('books/all', [BookController::class, 'index']);
+
+Route::get('students/one', [StudentController::class, 'getOne']);
+Route::get('students/all', [StudentController::class, 'getAll']);
