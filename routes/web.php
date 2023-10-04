@@ -1,8 +1,12 @@
 <?php
 
+//use App\Http\Controllers\Car\CarController;
+use App\Http\Controllers\Car\CarController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\Student\StudentController;
+//use App\Http\Controllers\Car\CarController;
+//use App\Http\Controllers\Car\CarController;
 
 /*
 |--------------------------------------------------------------------------
@@ -67,3 +71,6 @@ Route::get('books/all', [BookController::class, 'index']);
 
 Route::get('students/one', [StudentController::class, 'getOne']);
 Route::get('students/all', [StudentController::class, 'getAll']);
+
+Route::get('cars/create', [CarController::class, 'create']);
+Route::get('cars/store', [CarController::class, 'store']);
